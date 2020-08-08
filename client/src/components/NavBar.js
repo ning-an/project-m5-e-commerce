@@ -16,8 +16,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   font-size: 25px;
-  color: navy;
-  background-color: coral;
+  color: teal;
+  background-color: lightsalmon;
   border: 1px navy solid;
   border-radius: 4px;
   padding: 4px 0;
