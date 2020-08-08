@@ -27,7 +27,7 @@ const Wrapper = styled.h1`
 `;
 
 const Hippo = styled.img`
-  height: 30vh;
+  height: 20vh;
   width: 30vh;
 `;
 
