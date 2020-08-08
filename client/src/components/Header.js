@@ -27,8 +27,9 @@ const Wrapper = styled.h1`
 `;
 
 const Hippo = styled.img`
-  height: 20vh;
+  height: 18vh;
   width: 30vh;
+  margin: 8vh 25vh 0 0;
 `;
 
 const TextInputContainer = styled.div`

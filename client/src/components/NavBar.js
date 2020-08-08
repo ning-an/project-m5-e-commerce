@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   return (
     <Wrapper>
-      <div>CategoryPlaceholder</div>
-      <div>CompanyPlaceholder</div>
-      <div>SectionPlaceholder</div>
-      <div>About usPlaceholder</div>
+      <div>Category</div>
+      <div>Company</div>
+      <div>Section</div>
+      <div>About us</div>
     </Wrapper>
   );
 }

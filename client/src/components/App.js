@@ -1,18 +1,38 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
+import GlobalStyles from "./GlobalStyles";
 import Header from "./Header";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import Homepage from "./Homepage";
+import Categorypage from "./Categorypage";
+import Error404 from "./Error404";
 
 export default function App() {
   return (
-    <Main>
-      <Header />
-      <NavBar />
-      <div>Content clickables go here</div>
-      <Footer />
-    </Main>
+    <>
+      <Router>
+        <GlobalStyles />
+        <Main>
+          <Header />
+          <NavBar />
+          <div>Content clickables go here</div>
+        </Main>
+        <Switch>
+          <Route exact path="/">
+            <Homepage />
+          </Route>
+          <Route exact path="/categories">
+            <Categorypage />
+          </Route>
+          <Route exact path="/error/404">
+            <Error404 />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </>
   );
 }
 
