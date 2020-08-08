@@ -6,6 +6,9 @@ const morgan = require('morgan');
 
 const PORT = 4000;
 
+const items = require('./data/items.json');
+const companies = require('./data/fixedCompanies.json');
+
 express()
   .use(function(req, res, next) {
     res.header(
@@ -26,5 +29,16 @@ express()
 
   // REST endpoints?
   .get('/bacon', (req, res) => res.status(200).json('🥓'))
+  .get('/itemsAndCompanies', (req, res) => {
+    if(items && companies) {
+      let payload = {
+        items,
+        companies
+      }
+      res.status(200).json(payload);
+    } else {
+      res.status(404).send("Error: could not find the data");
+    }
+  })
 
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));
