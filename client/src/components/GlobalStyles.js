@@ -6,13 +6,14 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 div{
-    font-family: "Limelight", cursive;
+  font-family: 'Cardo', serif;
+
 }
   *,
   *:before,
   *:after {
     box-sizing: border-box;
-    font-family: "Limelight", cursive;
+    font-family: 'Cardo', serif;
     -webkit-font-smoothing: antialiased;
   }
 `;

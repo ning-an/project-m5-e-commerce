@@ -24,6 +24,3 @@ const Wrapper = styled.div`
   padding: 4px 0;
   font-family: "Limelight", cursive;
 `;
-
-// For colors, i've been using Teal-coral-navy as complimentary colors.
-// If you find a better font feel free to change!
