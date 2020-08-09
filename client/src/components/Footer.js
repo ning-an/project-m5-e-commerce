@@ -1,5 +1,21 @@
 import React from "react";
 
 export default function Footer() {
-  return <div>Copyright all rights reserved</div>;
+  return (
+    <Wrapper>
+      <Copyright>Copyright all rights reserved</Copyright>
+    </Wrapper>
+  );
 }
+
+const Wrapper = styled.h3`
+  display: flex;
+  align-self: auto;
+  justify-content: center;
+`;
+
+const Copyright = styled.div`
+  color: black;
+  font-family: "Handlee", cursive;
+  font-size: 24px;
+`;
