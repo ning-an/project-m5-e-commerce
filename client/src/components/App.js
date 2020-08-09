@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+
 import GlobalStyles from "./GlobalStyles";
 import Header from "./Header";
 import NavBar from "./NavBar";
@@ -16,51 +18,67 @@ import SelectedSectionArea from "./SelectedSectionArea";
 import SelectedCompanyPage from "./SelectedCompanyPage";
 import Aboutus from "./Aboutus";
 import Cart from "./Cart";
+import { fetchAllData } from "../helper/apiHelper";
+import { requestAllData, receiveAllData, receiveDataError } from "../action";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 export default function App() {
+  const dispatch = useDispatch();
+  const { status } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    dispatch(requestAllData());
+    fetchAllData()
+      .then((data) => dispatch(receiveAllData(data)))
+      .catch((err) => dispatch(receiveDataError(err)));
+  }, []);
+
   return (
     <>
       <Router>
         <GlobalStyles />
-        <Main>
-          <Header />
-          <NavBar />
-        </Main>
-        <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
-          <Route exact path="/categories">
-            <Categorypage />
-          </Route>
-          <Route exact path="/categories/:category">
-            <SelectedCategoryPage />
-          </Route>
-          <Route exact path="/item/:itemid">
-            <SelectedItem />
-          </Route>
-          <Route exact path="/company">
-            <Companypage />
-          </Route>
-          <Route exact path="/company/:companyid">
-            <SelectedCompanyPage />
-          </Route>
-          <Route exact path="/section">
-            <Sectionpage />
-          </Route>
-          <Route exact path="/section/:sectionarea">
-            <SelectedSectionArea />
-          </Route>
-          <Route>
-            <Cart exact path="/cart" />
-          </Route>
-          <Route exact path="/aboutus">
-            <Aboutus />
-          </Route>
-          <Route exact path="/error/404">
-            <Error404 />
-          </Route>
-        </Switch>
+        <Header />
+        {status === "loading" ? (
+          <CircularProgress />
+        ) : status === "success" ? (
+          <Main>
+            <NavBar />
+            <Switch>
+              <Route exact path="/">
+                <Homepage />
+              </Route>
+              <Route exact path="/categories">
+                <Categorypage />
+              </Route>
+              <Route exact path="/categories/:category">
+                <SelectedCategoryPage />
+              </Route>
+              <Route exact path="/item/:itemid">
+                <SelectedItem />
+              </Route>
+              <Route exact path="/company">
+                <Companypage />
+              </Route>
+              <Route exact path="/company/:companyid">
+                <SelectedCompanyPage />
+              </Route>
+              <Route exact path="/section">
+                <Sectionpage />
+              </Route>
+              <Route exact path="/section/:sectionarea">
+                <SelectedSectionArea />
+              </Route>
+              <Route>
+                <Cart exact path="/cart" />
+              </Route>
+              <Route exact path="/aboutus">
+                <Aboutus />
+              </Route>
+            </Switch>
+          </Main>
+        ) : (
+          <Error404 />
+        )}
         <Footer />
       </Router>
     </>

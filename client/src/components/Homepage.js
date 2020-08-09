@@ -1,37 +1,20 @@
 import React from "react";
-import SmallItem from "./Items/SmallItem";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
-const get15RandomItems = (items) => {
-  let randomItems = [];
-
-  for (let i = 0; i < 15; i++) {
-    let randomNumInItems = Math.floor(Math.random() * items.length);
-    randomItems.push(items[randomNumInItems]);
-  }
-
-  return randomItems;
-};
+import { get15RandomItems } from "./handlers";
+import SmallItem from "./Items/SmallItem";
 
 export default function Homepage() {
-  const [fifteenItems, setFifteenItems] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch("/itemsAndCompanies")
-      .then((res) => res.json())
-      .then((data) => {
-        setFifteenItems(get15RandomItems(data.items));
-      })
-      .catch((err) => console.log("Err: ", err));
-  }, []);
+  const { items, companies, status } = useSelector((state) => state.auth);
 
   return (
     <>
       <div>The Homepage</div>
       <Grid style={{ margin: "50px 100px" }}>
-        {fifteenItems
-          ? fifteenItems.map((item) => <SmallItem key={item.id} item={item} />)
-          : null}
+        {get15RandomItems(items).map((item) => {
+          return <SmallItem key={item.id} item={item} />;
+        })}
       </Grid>
     </>
   );
