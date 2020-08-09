@@ -10,6 +10,12 @@ import Categorypage from "./Categorypage";
 import Companypage from "./Companypage";
 import Error404 from "./Error404";
 import Sectionpage from "./Sectionpage";
+import SelectedCategoryPage from "./SelectedCategoryPage";
+import SelectedItem from "./SelectedItem";
+import SelectedSectionArea from "./SelectedSectionArea";
+import SelectedCompanyPage from "./SelectedCompanyPage";
+import Aboutus from "./Aboutus";
+import Cart from "./Cart";
 
 export default function App() {
   return (
@@ -27,11 +33,29 @@ export default function App() {
           <Route exact path="/categories">
             <Categorypage />
           </Route>
+          <Route exact path="/categories/:category">
+            <SelectedCategoryPage />
+          </Route>
+          <Route exact path="/item/:itemid">
+            <SelectedItem />
+          </Route>
           <Route exact path="/company">
             <Companypage />
           </Route>
+          <Route exact path="/company/:companyid">
+            <SelectedCompanyPage />
+          </Route>
           <Route exact path="/section">
             <Sectionpage />
+          </Route>
+          <Route exact path="/section/:sectionarea">
+            <SelectedSectionArea />
+          </Route>
+          <Route>
+            <Cart exact path="/cart" />
+          </Route>
+          <Route exact path="/aboutus">
+            <Aboutus />
           </Route>
           <Route exact path="/error/404">
             <Error404 />
