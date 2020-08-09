@@ -18,12 +18,9 @@ import SelectedSectionArea from "./SelectedSectionArea";
 import SelectedCompanyPage from "./SelectedCompanyPage";
 import Aboutus from "./Aboutus";
 import Cart from "./Cart";
-<<<<<<< Updated upstream
 import { fetchAllData } from "../helper/apiHelper";
 import { requestAllData, receiveAllData, receiveDataError } from "../action";
 import CircularProgress from "@material-ui/core/CircularProgress";
-=======
->>>>>>> Stashed changes
 
 export default function App() {
   const dispatch = useDispatch();
@@ -40,7 +37,6 @@ export default function App() {
     <>
       <Router>
         <GlobalStyles />
-<<<<<<< Updated upstream
         <Header />
         {status === "loading" ? (
           <CircularProgress />
@@ -83,47 +79,6 @@ export default function App() {
         ) : (
           <Error404 />
         )}
-=======
-        <Main>
-          <Header />
-          <NavBar />
-        </Main>
-        <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
-          <Route exact path="/categories">
-            <Categorypage />
-          </Route>
-          <Route exact path="/categories/:category">
-            <SelectedCategoryPage />
-          </Route>
-          <Route exact path="/item/:itemid">
-            <SelectedItem />
-          </Route>
-          <Route exact path="/company">
-            <Companypage />
-          </Route>
-          <Route exact path="/company/:companyid">
-            <SelectedCompanyPage />
-          </Route>
-          <Route exact path="/section">
-            <Sectionpage />
-          </Route>
-          <Route exact path="/section/:sectionarea">
-            <SelectedSectionArea />
-          </Route>
-          <Route>
-            <Cart exact path="/cart" />
-          </Route>
-          <Route exact path="/aboutus">
-            <Aboutus />
-          </Route>
-          <Route exact path="/error/404">
-            <Error404 />
-          </Route>
-        </Switch>
->>>>>>> Stashed changes
         <Footer />
       </Router>
     </>
