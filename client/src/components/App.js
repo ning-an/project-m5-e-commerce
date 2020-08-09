@@ -7,7 +7,9 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import Homepage from "./Homepage";
 import Categorypage from "./Categorypage";
+import Companypage from "./Companypage";
 import Error404 from "./Error404";
+import Sectionpage from "./Sectionpage";
 
 export default function App() {
   return (
@@ -17,7 +19,6 @@ export default function App() {
         <Main>
           <Header />
           <NavBar />
-          <div>Content clickables go here</div>
         </Main>
         <Switch>
           <Route exact path="/">
@@ -25,6 +26,12 @@ export default function App() {
           </Route>
           <Route exact path="/categories">
             <Categorypage />
+          </Route>
+          <Route exact path="/company">
+            <Companypage />
+          </Route>
+          <Route exact path="/section">
+            <Sectionpage />
           </Route>
           <Route exact path="/error/404">
             <Error404 />
