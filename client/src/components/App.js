@@ -17,6 +17,8 @@ import SelectedItem from "./SelectedItem";
 import SelectedSectionArea from "./SelectedSectionArea";
 import SelectedCompanyPage from "./SelectedCompanyPage";
 import Aboutus from "./Aboutus";
+import Countrypage from "./Countrypage";
+import SelectedCountryPage from "./SelectedCountryPage";
 import Cart from "./Cart";
 import { fetchAllData } from "../helper/apiHelper";
 import { requestAllData, receiveAllData, receiveDataError } from "../action";

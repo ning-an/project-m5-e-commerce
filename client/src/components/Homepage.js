@@ -1,27 +1,45 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
+import { Pagination } from "@material-ui/lab";
 
-import { get15RandomItems } from "./handlers";
-import SmallItem from "./Items/SmallItem";
+import { ItemPage } from "./Items/ItemPage";
 
 export default function Homepage() {
   const { items, companies, status } = useSelector((state) => state.auth);
+  const [currentPage, setcurrentPage] = useState(1);
+  const itemsPerPage = 30;
+  const handleChange = (_, value) => {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    setcurrentPage(value);
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <>
-      <div>The Homepage</div>
-      <Grid style={{ margin: "50px 100px" }}>
-        {get15RandomItems(items).map((item) => {
-          return <SmallItem key={item.id} item={item} />;
-        })}
-      </Grid>
-    </>
+    <Wrapper>
+      <ItemPage items={currentItems} />
+      <StyledPagination
+        count={Math.ceil(items.length / itemsPerPage)}
+        siblingCount={2}
+        size="large"
+        showFirstButton
+        showLastButton
+        onChange={handleChange}
+      />
+    </Wrapper>
   );
 }
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2em;
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledPagination = styled(Pagination)`
+  align-self: flex-end;
 `;

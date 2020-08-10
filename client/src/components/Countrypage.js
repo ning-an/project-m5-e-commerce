@@ -25,7 +25,7 @@ export default function Countrypage() {
       <div>Shows all Countries that companies are from</div>
       <Grid style={{ margin: "50px 100px" }}>
         {countriesArray.map((country) => {
-          return <Link></Link>;
+          return null;
         })}
       </Grid>
     </>

@@ -42,10 +42,14 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 0px 16px -11px rgba(0, 0, 0, 0.75);
-<<<<<<< Updated upstream
   padding: 20px 10px 5px;
   text-align: center;
   height: 350px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const Flag = styled.div`
@@ -54,16 +58,4 @@ const Flag = styled.div`
   left: 0;
   background-color: ${COLORS.bg};
   color: ${COLORS.font};
-=======
-  img {
-    height: 20vh;
-    width: 15vw;
-    padding-top: 15px;
-  }
-  p {
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
-  }
->>>>>>> Stashed changes
 `;
