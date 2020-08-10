@@ -12,24 +12,31 @@ export default function Header() {
 
   return (
     <>
-      <CartWrapper>
-        <NavLink exact to="/cart">
+      {/* <NavLink exact to="/cart">
           <IoIosCart style={{ marginTop: "30px", fontSize: "2em" }} />
           <span style={{ margin: "30px 100px 0 0", fontSize: "1.2em" }}>
             {getItemsInCart(state.cart)}
           </span>
         </NavLink>
-      </CartWrapper>
+      </CartWrapper> */}
       <Wrapper>
         <TextInputContainer>
           <Slogan>When it comes to wearables,</Slogan>
           <Logo> Pygmy</Logo>
           <Hippo src={hippo} />
         </TextInputContainer>
-        <RightOfLogo>
-          {/* <Login>Login</Login>
+        {/* <RightOfLogo> */}
+        {/* <Login>Login</Login>
           <SearchBar /> */}
-        </RightOfLogo>
+        {/* </RightOfLogo> */}
+        <CartWrapper>
+          <NavLink exact to="/cart">
+            <IoIosCart style={{ marginTop: "30px", fontSize: "2em" }} />
+            <span style={{ margin: "30px 100px 0 0", fontSize: "1.2em" }}>
+              {getItemsInCart(state.cart)}
+            </span>
+          </NavLink>
+        </CartWrapper>
       </Wrapper>
     </>
   );
@@ -57,7 +64,7 @@ const SearchBar = styled.input`
 const Slogan = styled.span`
   color: black;
   font-family: "Handlee", cursive;
-  font-size: 14.5px;
+  font-size: 20px;
 `;
 
 const Login = styled.button`

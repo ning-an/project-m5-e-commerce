@@ -7,6 +7,7 @@ import { COLORS } from "./constants";
 export default function NavBar() {
   return (
     <Wrapper>
+      <NavLink to="/">Home</NavLink>
       <NavLink to="/categories">Category</NavLink>
       <NavLink to="/company">Company</NavLink>
       <NavLink to="/section">Section</NavLink>
