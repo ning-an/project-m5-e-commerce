@@ -10,6 +10,7 @@ export default function NavBar() {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/categories">Category</NavLink>
       <NavLink to="/company">Company</NavLink>
+      <NavLink to="/country">Country</NavLink>
       <NavLink to="/section">Section</NavLink>
       <NavLink to="/aboutus">About us</NavLink>
     </Wrapper>

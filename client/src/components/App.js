@@ -94,9 +94,3 @@ export default function App() {
 }
 
 const Main = styled.main``;
-
-// ning's comment
-
-// Rupy's comment
-
-// Mrwan's comment lol
