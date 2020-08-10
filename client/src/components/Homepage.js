@@ -22,6 +22,6 @@ export default function Homepage() {
 
 const Grid = styled.div`
   display: grid;
-  grid: repeat(3, auto) / repeat(5, auto);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 2em;
 `;

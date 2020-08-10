@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import hippo from "../assets/hippo.png";
 
+import { COLORS } from "./constants";
+
 export default function Header() {
   return (
     <Wrapper>
@@ -33,7 +35,7 @@ const Hippo = styled.img`
 `;
 
 const TextInputContainer = styled.div`
-  color: teal;
+  color: ${COLORS.font};
 `;
 
 const SearchBar = styled.input`
