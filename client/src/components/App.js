@@ -59,7 +59,7 @@ export default function App() {
               <Route exact path="/company">
                 <Companypage />
               </Route>
-              <Route exact path="/company/:companyid">
+              <Route exact path="/company/:companyId">
                 <SelectedCompanyPage />
               </Route>
               <Route exact path="/section">
@@ -68,8 +68,8 @@ export default function App() {
               <Route exact path="/section/:sectionarea">
                 <SelectedSectionArea />
               </Route>
-              <Route>
-                <Cart exact path="/cart" />
+              <Route exact path="/cart">
+                <Cart />
               </Route>
               <Route exact path="/aboutus">
                 <Aboutus />

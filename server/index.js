@@ -7,7 +7,7 @@ const morgan = require("morgan");
 const PORT = 4000;
 
 const items = require("./data/items.json");
-const companies = require("./data/fixedCompanies.json");
+const companies = require("./data/companies.json");
 
 express()
   .use(function (req, res, next) {
@@ -29,6 +29,7 @@ express()
 
   // REST endpoints?
   .get("/bacon", (req, res) => res.status(200).json("🥓"))
+
   .get("/itemsAndCompanies", (req, res) => {
     if (items && companies) {
       let payload = {
@@ -40,5 +41,27 @@ express()
       res.status(404).send("Error: could not find the data");
     }
   })
+  .get("/item/:itemId", (req, res) => {
+    if (items) {
+      const itemId = req.params.itemId;
+      const item = items.find((itemInfo) => {
+        return itemInfo.id === Number(itemId);
+      });
+      res.status(200).json(item);
+    } else {
+      res.status(404).send("Error: could not find the data");
+    }
+  })
 
+  .get("/company/:companyId", (req, res) => {
+    if (companies) {
+      const companyId = req.params.companyId;
+      const company = companies.find((companyInfo) => {
+        return companyInfo.id === Number(companyId);
+      });
+      res.status(200).json(company);
+    } else {
+      res.status(404).send("Error: could not find the data");
+    }
+  })
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));
