@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@material-ui/core": "^5.0.0-alpha.5",
     "morgan": "^1.10.0"
   }
 }
