@@ -62,6 +62,12 @@ export default function App() {
               <Route exact path="/company/:companyId">
                 <SelectedCompanyPage />
               </Route>
+              <Route exact path="/countries">
+                <Countrypage />
+              </Route>
+              <Route exact path="/countries/:country">
+                <SelectedCountryPage />
+              </Route>
               <Route exact path="/section">
                 <Sectionpage />
               </Route>
