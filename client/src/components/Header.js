@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import hippo from "../assets/hippo.png";
@@ -8,22 +8,24 @@ import { IoIosCart } from "react-icons/io";
 import { getItemsInCart } from "../helper/utils";
 
 export default function Header() {
-  const state = useSelector(state => state);
-  
+  const state = useSelector((state) => state);
+
   return (
     <>
       <CartWrapper>
         <NavLink exact to="/cart">
-          <IoIosCart style={{ marginTop: "30px", fontSize: "2em"}}/> 
-          <span style={{ margin: "30px 100px 0 0", fontSize: "1.2em"}}>{getItemsInCart(state.cart)}</span>
+          <IoIosCart style={{ marginTop: "30px", fontSize: "2em" }} />
+          <span style={{ margin: "30px 100px 0 0", fontSize: "1.2em" }}>
+            {getItemsInCart(state.cart)}
+          </span>
         </NavLink>
       </CartWrapper>
       <Wrapper>
         <TextInputContainer>
           <Slogan>When it comes to wearables,</Slogan>
           <Logo> Pygmy</Logo>
+          <Hippo src={hippo} />
         </TextInputContainer>
-        <Hippo src={hippo} />
         <RightOfLogo>
           {/* <Login>Login</Login>
           <SearchBar /> */}
@@ -33,18 +35,15 @@ export default function Header() {
   );
 }
 
-const Wrapper = styled.h1`
+const Wrapper = styled.h3`
   display: flex;
-  margin-left: 5vh;
-  margin-top: 1.5vh;
-  align-self: auto;
-  justify-content: space-around;
+  justify-content: space-evenly;
 `;
 
 const Hippo = styled.img`
-  height: 18vh;
-  width: 30vh;
-  margin: 8vh 25vh 0 0;
+  height: 11vh;
+  width: 18vh;
+  padding: 20px 0 0 20px;
 `;
 
 const TextInputContainer = styled.div`
@@ -52,13 +51,13 @@ const TextInputContainer = styled.div`
 `;
 
 const SearchBar = styled.input`
-  height: 4vh;
+  height: 2vh;
 `;
 
 const Slogan = styled.span`
   color: black;
   font-family: "Handlee", cursive;
-  font-size: 24px;
+  font-size: 14.5px;
 `;
 
 const Login = styled.button`
@@ -68,7 +67,7 @@ const Login = styled.button`
 `;
 const Logo = styled.span`
   font-family: "Limelight", cursive;
-  font-size: 250px;
+  font-size: 150px;
 `;
 
 const RightOfLogo = styled.div`

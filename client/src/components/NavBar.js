@@ -7,10 +7,10 @@ import { COLORS } from "./constants";
 export default function NavBar() {
   return (
     <Wrapper>
-      <div>Category</div>
-      <div>Company</div>
-      <div>Section</div>
-      <div>About us</div>
+      <NavLink to="/categories">Category</NavLink>
+      <NavLink to="/company">Company</NavLink>
+      <NavLink to="/section">Section</NavLink>
+      <NavLink to="/aboutus">About us</NavLink>
     </Wrapper>
   );
 }
@@ -25,4 +25,9 @@ const Wrapper = styled.div`
   border-radius: 4px;
   padding: 4px 0;
   font-family: "Limelight", cursive;
+`;
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+  font-weight: bold;
 `;
