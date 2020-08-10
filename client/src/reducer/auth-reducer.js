@@ -1,5 +1,3 @@
-const { isValidElement } = require("react");
-
 const initialState = {
   items: null,
   companies: null,

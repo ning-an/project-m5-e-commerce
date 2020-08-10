@@ -10,4 +10,5 @@ export const BuyBtn = styled.button`
   color: ${COLORS.font};
   width: 100%;
   height: 50px;
+  cursor: pointer;
 `;

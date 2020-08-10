@@ -1,22 +1,35 @@
 import React from "react";
 import styled from "styled-components";
-import hippo from "../assets/hippo.png";
+import { useSelector} from "react-redux";
+import { NavLink } from "react-router-dom";
 
-import { COLORS } from "./constants";
+import hippo from "../assets/hippo.png";
+import { IoIosCart } from "react-icons/io";
+import { getItemsInCart } from "../helper/utils";
 
 export default function Header() {
+  const state = useSelector(state => state);
+  
   return (
-    <Wrapper>
-      <TextInputContainer>
-        <Slogan>When it comes to wearables,</Slogan>
-        <Logo> Pygmy</Logo>
-      </TextInputContainer>
-      <Hippo src={hippo} />
-      <RightOfLogo>
-        {/* <Login>Login</Login>
-        <SearchBar /> */}
-      </RightOfLogo>
-    </Wrapper>
+    <>
+      <CartWrapper>
+        <NavLink exact to="/cart">
+          <IoIosCart style={{ marginTop: "30px", fontSize: "2em"}}/> 
+          <span style={{ margin: "30px 100px 0 0", fontSize: "1.2em"}}>{getItemsInCart(state.cart)}</span>
+        </NavLink>
+      </CartWrapper>
+      <Wrapper>
+        <TextInputContainer>
+          <Slogan>When it comes to wearables,</Slogan>
+          <Logo> Pygmy</Logo>
+        </TextInputContainer>
+        <Hippo src={hippo} />
+        <RightOfLogo>
+          {/* <Login>Login</Login>
+          <SearchBar /> */}
+        </RightOfLogo>
+      </Wrapper>
+    </>
   );
 }
 
@@ -35,7 +48,7 @@ const Hippo = styled.img`
 `;
 
 const TextInputContainer = styled.div`
-  color: ${COLORS.font};
+  color: teal;
 `;
 
 const SearchBar = styled.input`
@@ -60,4 +73,10 @@ const Logo = styled.span`
 
 const RightOfLogo = styled.div`
   display: inline-block;
+`;
+
+const CartWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
