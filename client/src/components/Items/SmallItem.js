@@ -30,6 +30,9 @@ const Wrapper = styled.div`
   p {
     margin-left: 10px;
     margin-right: 10px;
+<<<<<<< Updated upstream
     text-align: center;
+=======
+>>>>>>> Stashed changes
   }
 `;
