@@ -20,7 +20,6 @@ export default function LargeCompany({ company }) {
       <p>{company.name}</p>
       <p>{company.price}</p>
       <Flag>{company.category}</Flag>
-<<<<<<< Updated upstream
       {hover &&
         (company.numInStock === 0 ? (
           <BuyBtn disabled={true} style={{ opacity: "0.5" }}>
@@ -34,11 +33,6 @@ export default function LargeCompany({ company }) {
               : ""}
           </BuyBtn>
         ))}
-=======
-      {hover && (
-        <BuyBtn>{company.numInStock > 0 ? "BUY NOW" : "OUT OF STOCK"}</BuyBtn>
-      )}
->>>>>>> Stashed changes
     </Wrapper>
   );
 }
@@ -53,22 +47,10 @@ const Wrapper = styled.div`
   padding: 20px 10px 5px;
   text-align: center;
   height: 350px;
-<<<<<<< Updated upstream
   transition: all 0.3s ease-in-out;
 
   &:hover {
     transform: scale(1.05);
-=======
-  img {
-    height: 20vh;
-    width: 15vw;
-    padding-top: 15px;
-  }
-  p {
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
->>>>>>> Stashed changes
   }
 `;
 
