@@ -8,7 +8,7 @@ import { COLORS } from "../constants";
 
 export default function SmallItem({ item }) {
   const [hover, setHover] = useState(false);
-  const state = useSelector((state) => state);
+  const state = useSelector(state => state);
   const dispatch = useDispatch();
 
   return (
@@ -20,17 +20,14 @@ export default function SmallItem({ item }) {
       <p>{item.name}</p>
       <p>{item.price}</p>
       <Flag>{item.category}</Flag>
-      {hover &&
-        (item.numInStock === 0 ? (
-          <BuyBtn disabled={true} style={{ opacity: "0.5" }}>
-            OUT OF STOCK
+      {hover && (
+        item.numInStock === 0 ? 
+        <BuyBtn disabled={true} style={{opacity: "0.5"}}>OUT OF STOCK</BuyBtn> :
+        <BuyBtn onClick={() => dispatch(addItemToCart(item, item.id))} >
+          ADD TO CART {state.cart[item.id] ? `Qt: ${state.cart[item.id].quantity}` : ""}
           </BuyBtn>
-        ) : (
-          <BuyBtn onClick={() => dispatch(addItemToCart(item, item.id))}>
-            ADD TO CART{" "}
-            {state.cart[item.id] ? `Qt: ${state.cart[item.id].quantity}` : ""}
-          </BuyBtn>
-        ))}
+        
+      )}
     </Wrapper>
   );
 }
