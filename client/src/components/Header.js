@@ -12,23 +12,12 @@ export default function Header() {
 
   return (
     <>
-      {/* <NavLink exact to="/cart">
-          <IoIosCart style={{ marginTop: "30px", fontSize: "2em" }} />
-          <span style={{ margin: "30px 100px 0 0", fontSize: "1.2em" }}>
-            {getItemsInCart(state.cart)}
-          </span>
-        </NavLink>
-      </CartWrapper> */}
       <Wrapper>
         <TextInputContainer>
           <Slogan>When it comes to wearables,</Slogan>
           <Logo> Pygmy</Logo>
           <Hippo src={hippo} />
         </TextInputContainer>
-        {/* <RightOfLogo> */}
-        {/* <Login>Login</Login>
-          <SearchBar /> */}
-        {/* </RightOfLogo> */}
         <CartWrapper>
           <NavLink exact to="/cart">
             <IoIosCart style={{ marginTop: "30px", fontSize: "2em" }} />
@@ -55,6 +44,7 @@ const Hippo = styled.img`
 
 const TextInputContainer = styled.div`
   color: teal;
+  margin-left: 200px;
 `;
 
 const SearchBar = styled.input`

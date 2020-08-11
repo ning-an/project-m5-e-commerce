@@ -76,4 +76,16 @@ express()
       res.status(404).send("Error: could not find the data");
     }
   })
+
+  .get("/categories/:category", (req, res) => {
+    if (items) {
+      const category = req.params.category;
+      const section = items.filter((body) => {
+        return body.category === category;
+      });
+      res.status(200).json(section);
+    } else {
+      res.status(404).send("Error: could not find the data");
+    }
+  })
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));

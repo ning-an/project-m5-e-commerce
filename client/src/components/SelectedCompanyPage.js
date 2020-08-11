@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import LargeCompany from "./Items/LargeCompany";
+import SmallCompany from "./Items/LargeCompany";
 
 export default function SelectedCompanyPage() {
   const { companies, items } = useSelector((state) => state.auth);
@@ -22,10 +22,12 @@ export default function SelectedCompanyPage() {
 
   return (
     <>
-      <Company>Welcome to {name} Products</Company>
+      <Company style={{ margin: "50px 50px" }}>
+        Welcome to {name} Products
+      </Company>
       <Grid style={{ margin: "50px 50px" }}>
         {findCompany.map((company) => {
-          return <LargeCompany key={company.id} company={company} />;
+          return <SmallCompany key={company.id} company={company} />;
         })}
       </Grid>
     </>

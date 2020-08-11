@@ -16,7 +16,7 @@ export default function SelectedSectionArea() {
 
   return (
     <>
-      <Section>Browsing by: {bodypart}</Section>
+      <Section style={{ margin: "50px 50px" }}>Browsing by: {bodypart}</Section>
       <Grid style={{ margin: "50px 50px" }}>
         {findBodies.map((item) => {
           return <SmallItem key={item.id} item={item} />;
@@ -33,5 +33,5 @@ const Grid = styled.div`
 `;
 
 const Section = styled.h1`
-  margin: 100px;
+  /* margin: 100px; */
 `;
