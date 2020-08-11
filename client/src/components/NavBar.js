@@ -8,7 +8,6 @@ import Dropdown from "./NavBarDropdow";
 export default function NavBar() {
   return (
     <Wrapper>
-<<<<<<< Updated upstream
       <button>
         <NavLink exact to="/" activeClassName="selected">
           Home
@@ -21,7 +20,7 @@ export default function NavBar() {
         </NavLink>
       </button>
       <button>
-        <NavLink to="/country" activeClassName="selected">
+        <NavLink to="/countries" activeClassName="selected">
           Country
         </NavLink>
       </button>
@@ -31,14 +30,6 @@ export default function NavBar() {
           About us
         </NavLink>
       </button>
-=======
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/categories">Category</NavLink>
-      <NavLink to="/company">Company</NavLink>
-      <NavLink to="/country">Country</NavLink>
-      <NavLink to="/section">Section</NavLink>
-      <NavLink to="/aboutus">About us</NavLink>
->>>>>>> Stashed changes
     </Wrapper>
   );
 }

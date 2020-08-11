@@ -1,15 +1,15 @@
 import React from "react";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Grid } from "@material-ui/core";
 
-import LargeCompany from "./Items/LargeCompany";
+import SmallCompany from "./Items/SmallCompany";
 
 export default function SelectedCountryPage() {
-  const { countries } = useSelector((state) => state.auth);
+  const companies = useSelector((state) => state.auth.companies);
   const { country } = useParams();
 
-  let findCompanies = countries.filter((companies) => {
+  let findCompanies = companies.filter((companies) => {
     return companies.country == country;
   });
 
@@ -20,8 +20,8 @@ export default function SelectedCountryPage() {
         Search by: {countryOrigin}
       </Section>
       <Grid style={{ margin: "50px 50px" }}>
-        {countryofcompany.map((company) => {
-          return <LargeCompany key={company.name} company={company} />;
+        {findCompanies.map((company) => {
+          return <SmallCompany key={company.name} company={company} />;
         })}
       </Grid>
     </>

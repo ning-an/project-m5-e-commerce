@@ -22,7 +22,9 @@ export default function Cart() {
         </div>
 
         <CheckOutSection>
-          Test
+          <CheckOutWrapper>
+            <p>{`(x amount of items)`}</p>
+          </CheckOutWrapper>
         </CheckOutSection>
       </div>
     </Wrapper>
@@ -44,4 +46,9 @@ const Wrapper = styled.div`
 
 const CheckOutSection = styled.div`
     flex: 1;
+`;
+
+const CheckOutWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
