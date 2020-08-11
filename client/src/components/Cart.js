@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import CartItem from "./Items/CartItem";
 import { useSelector } from "react-redux";
+
+import { BuyBtn } from "./BuyBtn";
+import CartItem from "./Items/CartItem";
+import { getItemsInCart, getPriceTotalOfItemsInCart } from "../helper/utils";
 
 export default function Cart() {
   const cart = useSelector(state => Object.values(state.cart));
@@ -23,8 +26,11 @@ export default function Cart() {
 
         <CheckOutSection>
           <CheckOutWrapper>
-            <p>{`(x amount of items)`}</p>
+            <Items>{`( ${getItemsInCart(cart)} items ) `}</Items> <PriceTotal>${getPriceTotalOfItemsInCart(cart)}</PriceTotal>
           </CheckOutWrapper>
+          {
+            cart.length ? <BuyBtn>Proceed to checkout</BuyBtn> : <BuyBtn style={{opacity: "0.5"}} disabled>Please add items to cart</BuyBtn>
+          }
         </CheckOutSection>
       </div>
     </Wrapper>
@@ -36,7 +42,11 @@ const Header = styled.div`
     display: flex;
     align-items: center;
     border-bottom: 1px solid lightgray;
-    margin: 20px;
+    margin: 20px 0;
+
+    h2 {
+      margin-left: 20px;
+    }
 `;
 
 const Wrapper = styled.div`
@@ -46,9 +56,24 @@ const Wrapper = styled.div`
 
 const CheckOutSection = styled.div`
     flex: 1;
+    margin-left: 15px;
+`;
+
+const Items = styled.span`
+  font-size: 1.2em;
+  font-weight: bold;
+`;
+
+const PriceTotal = styled.span`
+  font-size: 1.2em;
+  font-weight: bold;
 `;
 
 const CheckOutWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
 `;
+

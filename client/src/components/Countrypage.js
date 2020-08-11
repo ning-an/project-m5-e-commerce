@@ -23,6 +23,7 @@ export default function Countrypage() {
     </>
   );
 }
+
 const Grid = styled.div`
   display: grid;
   grid: repeat(3, auto) / repeat(3, auto);
