@@ -35,6 +35,9 @@ export default function NavBarDropdow({ name }) {
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
+        getContentAnchorEl={null}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        transformOrigin={{ vertical: "top", horizontal: "center" }}
         onClose={() => setAnchorEl(null)}
       >
         {data.map((category) => (
