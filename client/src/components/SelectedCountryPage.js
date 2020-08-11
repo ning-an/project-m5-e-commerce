@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< Updated upstream
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -10,6 +11,19 @@ export default function SelectedCountryPage() {
   const { country } = useParams();
 
   let findCompanies = companies.filter((companies) => {
+=======
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { Grid } from "@material-ui/core";
+
+import LargeCompany from "./Items/LargeCompany";
+
+export default function SelectedCountryPage() {
+  const { countries } = useSelector((state) => state.auth);
+  const { country } = useParams();
+
+  let findCompanies = countries.filter((companies) => {
+>>>>>>> Stashed changes
     return companies.country == country;
   });
 
@@ -20,8 +34,13 @@ export default function SelectedCountryPage() {
         Search by: {countryOrigin}
       </Section>
       <Grid style={{ margin: "50px 50px" }}>
+<<<<<<< Updated upstream
         {findCompanies.map((company) => {
           return <SmallCompany key={company.name} company={company} />;
+=======
+        {countryofcompany.map((company) => {
+          return <LargeCompany key={company.name} company={company} />;
+>>>>>>> Stashed changes
         })}
       </Grid>
     </>
