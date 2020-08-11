@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart } from "../../action";
 
 import { BuyBtn } from "../BuyBtn";
 import { COLORS } from "../constants";
 
 export default function LargeCompany({ company }) {
   const [hover, setHover] = useState(false);
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   return (
     <Wrapper
       onMouseEnter={() => setHover(true)}
@@ -15,9 +20,19 @@ export default function LargeCompany({ company }) {
       <p>{company.name}</p>
       <p>{company.price}</p>
       <Flag>{company.category}</Flag>
-      {hover && (
-        <BuyBtn>{company.numInStock > 0 ? "BUY NOW" : "OUT OF STOCK"}</BuyBtn>
-      )}
+      {hover &&
+        (company.numInStock === 0 ? (
+          <BuyBtn disabled={true} style={{ opacity: "0.5" }}>
+            OUT OF STOCK
+          </BuyBtn>
+        ) : (
+          <BuyBtn onClick={() => dispatch(addItemToCart(company, company.id))}>
+            ADD TO CART{" "}
+            {state.cart[company.id]
+              ? `Qt: ${state.cart[company.id].quantity}`
+              : ""}
+          </BuyBtn>
+        ))}
     </Wrapper>
   );
 }
@@ -32,15 +47,10 @@ const Wrapper = styled.div`
   padding: 20px 10px 5px;
   text-align: center;
   height: 350px;
-  img {
-    height: 20vh;
-    width: 15vw;
-    padding-top: 15px;
-  }
-  p {
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
   }
 `;
 

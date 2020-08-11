@@ -7,6 +7,7 @@ import LargeCompany from "./Items/LargeCompany";
 export default function SelectedCompanyPage() {
   const { companies, items } = useSelector((state) => state.auth);
   const { companyId } = useParams();
+  console.log(companyId);
 
   let findCompany = items.filter((company) => {
     return company.companyId == companyId;

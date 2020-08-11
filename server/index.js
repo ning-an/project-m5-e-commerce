@@ -53,6 +53,18 @@ express()
     }
   })
 
+  .get("/section/:sectionarea", (req, res) => {
+    if (items) {
+      const sectionarea = req.params.sectionarea;
+      const section = items.filter((body) => {
+        return body.body_location === sectionarea;
+      });
+      res.status(200).json(section);
+    } else {
+      res.status(404).send("Error: could not find the data");
+    }
+  })
+
   .get("/company/:companyId", (req, res) => {
     if (companies) {
       const companyId = req.params.companyId;
