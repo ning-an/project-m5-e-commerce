@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+import { COLORS } from "./constants";
+
 const GlobalStyles = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -18,11 +20,20 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
   font-family: 'Cardo', serif;
+  vertical-align: baseline;
   }
 
   ol, ul {
 	list-style: none;
 }
+  a {
+    color: ${COLORS.font};
+    text-decoration: none;
+  }
+  
+  a:active, a:visited {
+    color: ${COLORS.font};
+  }
 
   *,
   *:before,

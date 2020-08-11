@@ -14,3 +14,11 @@ export const get15RandomItems = (items) => {
 
   return randomItems;
 };
+
+export const groupItemsByKey = (items, key) => {
+  return items.reduce((acc, cur) => {
+    acc[cur[key]] = acc[cur[key]] || [];
+    acc[cur[key]].push(cur);
+    return acc;
+  }, {});
+};
