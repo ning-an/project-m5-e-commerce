@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import UnstyledButton from "../../helper/UnstyledButton";
 import { getCompanyName } from "../../helper/utils";
-import { removeItemFromCart } from "../../action";
+import { removeItemFromCart, incrementItemQuantityBy1, decrementItemQuantityBy1 } from "../../action";
 
 export default function Cart({item}) {
     const companies = useSelector(state => state.auth.companies);
@@ -19,7 +19,7 @@ export default function Cart({item}) {
                         <p>{item.name}</p>
                         <p>By {getCompanyName(item.companyId, companies)}</p>
                     </div>
-                    <p>Selected Quantity: {item.quantity}</p>
+                    <p>Selected Quantity: {item.quantity} <PlusMinusBtn onClick={() => dispatch(incrementItemQuantityBy1(item.id))} style={{display: "inline-block"}}>+</PlusMinusBtn> <PlusMinusBtn onClick={() => dispatch(decrementItemQuantityBy1(item.id))} style={{display: "inline-block"}}>-</PlusMinusBtn></p>
                     <p>Number of item in stock: {item.numInStock}</p>
                     <span><RemoveBtn onClick={() => dispatch(removeItemFromCart(item.id))}>Remove all</RemoveBtn></span>
                     <p style={{marginTop: "auto", marginLeft: "auto"}}>{item.price}</p>
@@ -56,4 +56,10 @@ const ItemImg = styled.img`
 const RemoveBtn = styled(UnstyledButton)`
     font-size: 0.8em;
     color: red;
+`;
+
+const PlusMinusBtn = styled(UnstyledButton)`
+    padding: 0 5px;
+    border: 1px solid black;
+    border-radius: 50%;
 `;

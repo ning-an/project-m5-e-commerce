@@ -23,10 +23,16 @@ export const removeItemFromCart = (id) => {
   return { type: "REMOVE_ITEM", id };
 }
 
-export const updateQuantityFromItem = (id, quantity) => {
-  return { type: "UPDATE_QUANTITY_ITEM", id,  quantity };
-}
+
 
 export const clearAllItemsInCart = () => {
   return { type: "CLEAR_CART_ITEM"};
+}
+
+export const incrementItemQuantityBy1 = (id) => {
+  return { type: "INCREMENT_ITEM_QUANTITY", id};
+}
+
+export const decrementItemQuantityBy1 = (id) => {
+  return { type: "DECREMENT_ITEM_QUANTITY", id};
 }

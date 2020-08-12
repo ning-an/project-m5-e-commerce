@@ -1,4 +1,4 @@
-export const getItemsInCart = (cart) => {
+export const getItemsQuantityInCart = (cart) => {
     let cartItems = Object.values(cart);
     let sum = 0;
     
@@ -27,4 +27,8 @@ export const getPriceTotalOfItemsInCart = (cart) => {
 export const getCompanyName = (id, companiesArr) => {
     let company = companiesArr.find(company => company.id === id);
     return company.name;
+}
+
+export const checkIfAllItemsAreInStockLimit = (cart) => {
+    return cart.every(item => item.quantity <= item.numInStock);
 }

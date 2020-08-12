@@ -5,7 +5,7 @@ import CheckoutDialog from "./CheckoutDialog";
 
 import { BuyBtn } from "./BuyBtn";
 import CartItem from "./Items/CartItem";
-import { getItemsInCart, getPriceTotalOfItemsInCart } from "../helper/utils";
+import { getItemsQuantityInCart, getPriceTotalOfItemsInCart, checkIfAllItemsAreInStockLimit } from "../helper/utils";
 import { handlePurchasePayload } from "./handlers";
 
 export default function Cart() {
@@ -39,15 +39,15 @@ export default function Cart() {
 
           <CheckOutSection>
             <CheckOutWrapper>
-              <Items>{`( ${getItemsInCart(cart)} items ) `}</Items> <PriceTotal>sub total ${getPriceTotalOfItemsInCart(cart)}</PriceTotal>
+              <Items>{`( ${getItemsQuantityInCart(cart)} items ) `}</Items> <PriceTotal>sub total ${getPriceTotalOfItemsInCart(cart)}</PriceTotal>
             </CheckOutWrapper>
             {
-              cart.length ? <BuyBtn onClick={() => {
+              cart.length && checkIfAllItemsAreInStockLimit(cart) ? <BuyBtn onClick={() => {
                 handleClickOpen(); 
                 setPurchasePayload(handlePurchasePayload(cart));
               }} style={{fontSize: "1.1em"}}>Proceed to checkout</BuyBtn> 
-              : 
-              <BuyBtn style={{opacity: "0.5", fontSize: "1.1em"}} disabled>Please add items to cart</BuyBtn>
+              :
+              <BuyBtn style={{opacity: "0.5", fontSize: "1.1em"}} disabled>{checkIfAllItemsAreInStockLimit(cart) ? "Please add items to cart" : "One or more items are over the stock limit"}</BuyBtn>
             }
           </CheckOutSection>
         </div>

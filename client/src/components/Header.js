@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 import hippo from "../assets/hippo.png";
 import { IoIosCart } from "react-icons/io";
-import { getItemsInCart } from "../helper/utils";
+import { getItemsQuantityInCart } from "../helper/utils";
 
 export default function Header() {
   const state = useSelector((state) => state);
@@ -22,7 +22,7 @@ export default function Header() {
           <NavLink exact to="/cart">
             <IoIosCart style={{ marginTop: "30px", fontSize: "2em" }} />
             <span style={{ margin: "30px 100px 0 0", fontSize: "1.2em" }}>
-              {getItemsInCart(state.cart)}
+              {getItemsQuantityInCart(state.cart)}
             </span>
           </NavLink>
         </CartWrapper>
