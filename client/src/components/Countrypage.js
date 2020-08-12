@@ -26,22 +26,21 @@ export default function Countrypage() {
 
 const Grid = styled.div`
   display: grid;
-  grid: repeat(3, auto) / repeat(3, auto);
-  gap: 5em;
-  /* border: 2px solid black; */
+  grid: repeat(4, auto) / repeat(3, auto);
+  gap: 2em;
 `;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 200px 0;
+  padding: 100px 50px;
+  background-color: lightcoral;
 `;
 
 const Body = styled(Link)`
-  height: 100px;
-  width: 200px;
   align-items: center;
-  font-size: 46px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
   justify-content: space-around;
   text-decoration: none;
   color: navy;
