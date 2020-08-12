@@ -35,6 +35,9 @@ time, mark, audio, video {
     color: ${COLORS.font};
   }
 
+  button{
+    cursor: pointer;
+  }
   *,
   *:before,
   *:after {

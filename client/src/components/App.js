@@ -19,6 +19,7 @@ import SelectedCompanyPage from "./SelectedCompanyPage";
 import Aboutus from "./Aboutus";
 import Countrypage from "./Countrypage";
 import SelectedCountryPage from "./SelectedCountryPage";
+import Results from "./SearchResults";
 import Cart from "./Cart";
 import { fetchAllData } from "../helper/apiHelper";
 import { requestAllData, receiveAllData, receiveDataError } from "../action";
@@ -81,6 +82,9 @@ export default function App() {
               </Route>
               <Route exact path="/aboutus">
                 <Aboutus />
+              </Route>
+              <Route path="/search/:input">
+                <Results />
               </Route>
             </Switch>
           </Main>
