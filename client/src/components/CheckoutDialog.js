@@ -69,6 +69,7 @@ export default function FormDialog({ handleClose, open, cart, purchasePayload })
                 .then(() => {
                   history.push('/');
                   dispatch(clearAllItemsInCart());
+                  window.location.reload();
                 })
                 .catch(err => console.log("Err: ", err));
 
