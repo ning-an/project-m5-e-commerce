@@ -21,10 +21,9 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 16px -11px rgba(0, 0, 0, 0.75);
-  border: 2px solid navy;
-  width: 125px;
-  height: 125px;
-  border-radius: 50%;
+  border: 3px solid blue;
+  width: 100px;
+  height: 100px;
   p {
     text-align: center;
     opacity: 100%;

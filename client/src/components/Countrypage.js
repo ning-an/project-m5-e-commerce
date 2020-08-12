@@ -34,7 +34,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 100px 50px;
-  background-color: lightcoral;
+  background: linear-gradient(270deg, #b9deed, #efefef);
 `;
 
 const Body = styled(Link)`
