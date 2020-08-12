@@ -26,3 +26,7 @@ export const removeItemFromCart = (id) => {
 export const updateQuantityFromItem = (id, quantity) => {
   return { type: "UPDATE_QUANTITY_ITEM", id,  quantity };
 }
+
+export const clearAllItemsInCart = () => {
+  return { type: "CLEAR_CART_ITEM"};
+}
