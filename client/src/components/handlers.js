@@ -24,3 +24,11 @@ export const groupItemsByKey = (items, key) => {
     return acc;
   }, {});
 };
+
+export const handlePurchasePayload = (cart) => {
+  let purchasedItems = [];
+  
+  cart.forEach(item => purchasedItems.push({id: item.id, quantity: item.quantity}));
+
+  return purchasedItems;
+}

@@ -1,39 +1,59 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import CheckoutDialog from "./CheckoutDialog";
 
 import { BuyBtn } from "./BuyBtn";
 import CartItem from "./Items/CartItem";
 import { getItemsInCart, getPriceTotalOfItemsInCart } from "../helper/utils";
+import { handlePurchasePayload } from "./handlers";
 
 export default function Cart() {
   const cart = useSelector(state => Object.values(state.cart));
+  const [open, setOpen] = React.useState(false);
+  const [purchasePayload, setPurchasePayload] = React.useState([]);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   
   return(
-    <Wrapper>
-      <Header>
-        <h2>Shopping Cart</h2>
-      </Header>
-      
-      <div style={{display: "flex"}}>
-        <div style={{width: "75%"}}>
-          {
-            cart.length ?
-            cart.map(item => <CartItem key={item.id} item={item}/>) :
-            <h3 style={{margin: "20px"}}>Your shopping cart is empty</h3>
-          }
-        </div>
+    <>
+      <Wrapper>
+        <Header>
+          <h2>Shopping Cart</h2>
+        </Header>
+        
+        <div style={{display: "flex"}}>
+          <div style={{width: "75%"}}>
+            {
+              cart.length ?
+              cart.map(item => <CartItem key={item.id} item={item}/>) :
+              <h3 style={{margin: "20px"}}>Your shopping cart is empty</h3>
+            }
+          </div>
 
-        <CheckOutSection>
-          <CheckOutWrapper>
-            <Items>{`( ${getItemsInCart(cart)} items ) `}</Items> <PriceTotal>${getPriceTotalOfItemsInCart(cart)}</PriceTotal>
-          </CheckOutWrapper>
-          {
-            cart.length ? <BuyBtn>Proceed to checkout</BuyBtn> : <BuyBtn style={{opacity: "0.5"}} disabled>Please add items to cart</BuyBtn>
-          }
-        </CheckOutSection>
-      </div>
-    </Wrapper>
+          <CheckOutSection>
+            <CheckOutWrapper>
+              <Items>{`( ${getItemsInCart(cart)} items ) `}</Items> <PriceTotal>sub total ${getPriceTotalOfItemsInCart(cart)}</PriceTotal>
+            </CheckOutWrapper>
+            {
+              cart.length ? <BuyBtn onClick={() => {
+                handleClickOpen(); 
+                setPurchasePayload(handlePurchasePayload(cart));
+              }} style={{fontSize: "1.1em"}}>Proceed to checkout</BuyBtn> 
+              : 
+              <BuyBtn style={{opacity: "0.5", fontSize: "1.1em"}} disabled>Please add items to cart</BuyBtn>
+            }
+          </CheckOutSection>
+        </div>
+      </Wrapper>
+      <CheckoutDialog handleClose={handleClose} open={open} cart={cart} purchasePayload={purchasePayload}/>
+    </>
   );
 }
 

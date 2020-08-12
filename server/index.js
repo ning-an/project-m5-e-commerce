@@ -88,4 +88,17 @@ express()
       res.status(404).send("Error: could not find the data");
     }
   })
+
+  .post("/updateInventoryFromPurchase", (req, res) => {
+    let purchaseOrder = req.body;
+
+    if(purchaseOrder){
+      purchaseOrder.forEach(item => {
+        items.find(items => items.id === item.id).numInStock -= item.quantity;
+      });
+      res.status(200).send('worked')
+    } else {
+      res.status(404).send("Something went wrong with purchasing")
+    }
+  })
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));
