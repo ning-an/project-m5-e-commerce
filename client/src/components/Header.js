@@ -47,7 +47,7 @@ export default function Header() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push(`./search/${searchInput}`);
+    history.push(`/search/${searchInput}`);
     dispatch(storeSearchResults(suggestedItems));
     setOpenSearchTray(false);
   };
@@ -202,7 +202,7 @@ const SuggestedArea = styled.ul`
   position: absolute;
   top: 130px;
   left: 20px;
-  opacity: 0.9;
+  opacity: 1;
   z-index: 5;
   background-color: #fafafa;
   line-height: 2em;
@@ -210,6 +210,7 @@ const SuggestedArea = styled.ul`
 
   li {
     padding: 5px;
+    box-sizing: border-box;
 
     &:hover {
       transform: scale(1.01);
