@@ -9,9 +9,8 @@ export default function SelectedItem() {
   const { itemid } = useParams();
 
   let findItem = items.filter((item) => {
-    return item.id === itemid;
+    return item.id === Number(itemid);
   });
-  console.log(findItem);
 
   return (
     <>
