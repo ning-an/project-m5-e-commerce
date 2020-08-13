@@ -25,11 +25,11 @@ export default function NavBar() {
         </NavLink>
       </button>
       <Dropdown name="body_location" />
-      <button>
-        <NavLink to="/aboutus" activeClassName="selected">
+      {/* <button> */}
+      {/* <NavLink to="/aboutus" activeClassName="selected">
           About us
-        </NavLink>
-      </button>
+        </NavLink> */}
+      {/* </button> */}
     </Wrapper>
   );
 }

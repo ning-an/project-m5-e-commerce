@@ -40,6 +40,7 @@ const BigWrapper = styled.div`
   width: 100%;
   padding: 0 72px;
   background-color: #fafafb;
+  z-index
 `;
 
 const MainContenWrapper = styled.div`
