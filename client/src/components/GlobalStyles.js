@@ -19,7 +19,7 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-  font-family: 'Cardo', serif;
+  font-family: 'Montserrat', sans-serif;
   vertical-align: baseline;
   }
 
@@ -38,11 +38,16 @@ time, mark, audio, video {
   button{
     cursor: pointer;
   }
+  
+  main {
+    min-height: 60vh;
+  }
+
   *,
   *:before,
   *:after {
     box-sizing: border-box;
-    font-family: 'Cardo', serif;
+    font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 `;
