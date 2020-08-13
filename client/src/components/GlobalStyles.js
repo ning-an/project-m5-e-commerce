@@ -21,6 +21,7 @@ time, mark, audio, video {
 	border: 0;
   font-family: 'Montserrat', sans-serif;
   vertical-align: baseline;
+
   }
 
   ol, ul {
@@ -49,7 +50,10 @@ time, mark, audio, video {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
+    
   }
+  body {
+  background: ghostwhite;}
 `;
 
 export default GlobalStyles;

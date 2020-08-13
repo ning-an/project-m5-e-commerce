@@ -37,11 +37,11 @@ const Body = styled(Link)`
   justify-content: space-around;
   text-decoration: none;
   padding: 20px;
-  border: 2px solid pink;
+  border: 4px solid pink;
   border-radius: 7px;
   box-shadow: 0px 0px 16px -11px rgba(255, 182, 193, 0.75);
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
   }
 `;
 const Wrapper = styled.div`

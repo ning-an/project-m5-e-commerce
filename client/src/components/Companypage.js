@@ -10,6 +10,9 @@ export default function Companypage() {
     <>
       <Alphabar>
         <Listletter>
+          <Nav href="#">#</Nav>
+        </Listletter>
+        <Listletter>
           <Nav href="#A">A</Nav>
         </Listletter>
         <Listletter>
