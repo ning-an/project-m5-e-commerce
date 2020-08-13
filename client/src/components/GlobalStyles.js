@@ -41,7 +41,7 @@ time, mark, audio, video {
   }
   
   main {
-    min-height: 60vh;
+    min-height: 105vh;
   }
 
   *,

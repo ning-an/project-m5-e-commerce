@@ -18,7 +18,6 @@ export default function SelectedCompanyPage() {
       return company.name;
     }
   });
-  const name = companyName[0].name;
 
   return (
     <>
@@ -27,7 +26,7 @@ export default function SelectedCompanyPage() {
       ) : (
         <>
           <Company style={{ margin: "50px 50px" }}>
-            Welcome to {name} Products
+            Welcome to {companyName[0].name} Products
           </Company>
           <Grid style={{ margin: "50px 50px" }}>
             {findCompany.map((company) => {
