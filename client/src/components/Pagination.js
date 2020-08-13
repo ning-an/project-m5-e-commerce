@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
 import { Pagination } from "@material-ui/lab";
-import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 import { ItemPage } from "./Items/ItemPage";
-import { changeSuccessSnackBarStatus, changeFailureSnackBarStatus } from "../action";
+import {
+  changeSuccessSnackBarStatus,
+  changeFailureSnackBarStatus,
+} from "../action";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -16,8 +19,8 @@ function Alert(props) {
 export default function PaginatePage({ items }) {
   const [currentPage, setcurrentPage] = useState(1);
   const [itemsPerPage, setitemsPerPage] = useState(10);
-  const state = useSelector(state => state.auth);
-  const dispatch = useDispatch()
+  const state = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const handleChange = (_, value) => {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -25,7 +28,7 @@ export default function PaginatePage({ items }) {
   };
 
   const handlePurchaseSuccessClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
 
@@ -33,7 +36,7 @@ export default function PaginatePage({ items }) {
   };
 
   const handlePurchaseFailureClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
 
@@ -67,12 +70,20 @@ export default function PaginatePage({ items }) {
         showLastButton
         onChange={handleChange}
       />
-      <Snackbar open={state.snackBarSuccess} autoHideDuration={8000} onClose={handlePurchaseSuccessClose}>
+      <Snackbar
+        open={state.snackBarSuccess}
+        autoHideDuration={8000}
+        onClose={handlePurchaseSuccessClose}
+      >
         <Alert onClose={handlePurchaseSuccessClose} severity="success">
           Order successful. Thank you for shopping with Pygmy!
         </Alert>
       </Snackbar>
-      <Snackbar open={state.snackBarFailure} autoHideDuration={8000} onClose={handlePurchaseFailureClose}>
+      <Snackbar
+        open={state.snackBarFailure}
+        autoHideDuration={8000}
+        onClose={handlePurchaseFailureClose}
+      >
         <Alert onClose={handlePurchaseFailureClose} severity="error">
           Something went very wrong. Please contact customer support.
         </Alert>
