@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import SmallCompany from "./Items/LargeCompany";
 
 export default function SelectedCompanyPage() {
@@ -22,14 +22,20 @@ export default function SelectedCompanyPage() {
 
   return (
     <>
-      <Company style={{ margin: "50px 50px" }}>
-        Welcome to {name} Products
-      </Company>
-      <Grid style={{ margin: "50px 50px" }}>
-        {findCompany.map((company) => {
-          return <SmallCompany key={company.id} company={company} />;
-        })}
-      </Grid>
+      {!findCompany.length ? (
+        <Redirect to="/error/404"></Redirect>
+      ) : (
+        <>
+          <Company style={{ margin: "50px 50px" }}>
+            Welcome to {name} Products
+          </Company>
+          <Grid style={{ margin: "50px 50px" }}>
+            {findCompany.map((company) => {
+              return <SmallCompany key={company.id} company={company} />;
+            })}
+          </Grid>
+        </>
+      )}
     </>
   );
 }

@@ -13,8 +13,6 @@ export default function SelectedCategoryPage() {
     return cat.category == category;
   });
 
-  const targetCategory = findCategory[0].category;
-
   return <Pagination items={findCategory} />;
 }
 

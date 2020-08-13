@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import LargeItem from "./Items/SmallItem";
 
 export default function SelectedItem() {
@@ -11,17 +11,22 @@ export default function SelectedItem() {
   let findItem = items.filter((item) => {
     return item.id == itemid;
   });
-
-  const productName = findItem[0].name;
+  console.log(findItem);
 
   return (
     <>
-      <Section>{productName}</Section>
-      <Details style={{ margin: "50px 50px" }}>
-        {findItem.map((item) => {
-          return <LargeItem key={item.id} item={item} />;
-        })}
-      </Details>
+      {!findItem.length ? (
+        <Redirect to="/error/404"></Redirect>
+      ) : (
+        <>
+          <Section>{findItem[0].name}</Section>
+          <Details style={{ margin: "50px 50px" }}>
+            {findItem.map((item) => {
+              return <LargeItem key={item.id} item={item} />;
+            })}
+          </Details>
+        </>
+      )}
     </>
   );
 }
