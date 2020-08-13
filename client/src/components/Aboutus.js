@@ -17,15 +17,16 @@ export default function Aboutus() {
 }
 
 const Wrapper = styled.h3`
-  display: flex;
   align-self: auto;
   justify-content: center;
 `;
 
-const Label = styled.div`
+const Label = styled.h1`
   color: black;
   font-family: "Handlee", cursive;
   font-size: 24px;
+  align-items: center;
+  margin-top: 50px;
 `;
 
 const Content = styled.p`
