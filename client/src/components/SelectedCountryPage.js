@@ -23,6 +23,9 @@ export default function SelectedCountryPage() {
       {findCompanies.length > 5 && (
         <Alphabar>
           <Listletter>
+            <Nav href="#">#</Nav>
+          </Listletter>
+          <Listletter>
             <Nav href="#A">A</Nav>
           </Listletter>
           <Listletter>
@@ -137,7 +140,9 @@ const Grid = styled.div`
 `;
 
 const Section = styled.div`
-  font-size: 25px;
+  font-size: 30px;
+  font-family: "Cardo", serif;
+  color: midnightblue;
 `;
 const Alphabar = styled.div`
   display: flex;

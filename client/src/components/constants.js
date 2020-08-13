@@ -1,4 +1,4 @@
 export const COLORS = {
-  font: "teal",
-  bg: "lightsalmon",
+  font: "midnightblue",
+  bg: "lavender",
 };
