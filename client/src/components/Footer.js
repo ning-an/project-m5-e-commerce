@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FaFacebookSquare, FaTwitter, FaInstagram } from "react-icons/fa";
 
 import hippo from "../assets/hippo.png";
+import { COLORS } from "./constants";
 
 export default function Footer() {
   return (
@@ -39,8 +40,7 @@ const BigWrapper = styled.div`
   position: absolute;
   width: 100%;
   padding: 0 72px;
-  background-color: #fafafb;
-  z-index
+  background-color: ${COLORS.bg};
 `;
 
 const MainContenWrapper = styled.div`

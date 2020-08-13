@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link, useHistory } from "react-router-dom";
@@ -10,6 +10,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { getItemsQuantityInCart } from "../helper/utils";
 import { COLORS } from "./constants";
 import { storeSearchResults } from "../action";
+import NavBar from "./NavBar";
 
 export default function Header() {
   let history = useHistory();
@@ -61,13 +62,15 @@ export default function Header() {
     <>
       <Wrapper>
         <Slogan>When it comes to wearables</Slogan>
-        <Trademark>
-          <Hippo src={hippo} alt="hippo" />
-          <Logo>Pygmy</Logo>
-        </Trademark>
+        <Link to="/">
+          <Trademark>
+            <Hippo src={hippo} alt="hippo" />
+            <Logo>Pygmy</Logo>
+          </Trademark>
+        </Link>
         <Actions>
           <SearchBar onClick={handleOpenSearch}>
-            <RiSearchLine />
+            <RiSearchLine style={{ fontSize: "2em" }} />
           </SearchBar>
           <NavLink exact to="/cart">
             <IoIosCart style={{ fontSize: "2em" }} />
@@ -119,6 +122,7 @@ export default function Header() {
           })}
         </SuggestedArea>
       )}
+      <NavBar />
     </>
   );
 }
@@ -154,15 +158,17 @@ const Hippo = styled.img`
   height: 50px;
 `;
 
-const SearchBar = styled.button`
-  /* display: inline; */
-`;
-
 const Actions = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 215px;
+`;
+
+const SearchBar = styled.button`
+  background: transparent;
+  border: none;
+  margin-right: 20px;
 `;
 
 const SearchTray = styled.div`
@@ -179,6 +185,7 @@ const SearchTray = styled.div`
     width: 60%;
     border-bottom: ${COLORS.font} solid 1px;
     font-size: 1.5em;
+    background: transparent;
 
     &:focus {
       outline: none;
@@ -202,9 +209,9 @@ const SuggestedArea = styled.ul`
   position: absolute;
   top: 130px;
   left: 20px;
-  opacity: 1;
+  opacity: 0.98;
   z-index: 5;
-  background-color: #fafafa;
+  background-color: ghostwhite;
   line-height: 2em;
   width: 60%;
 
@@ -218,18 +225,18 @@ const SuggestedArea = styled.ul`
     }
   }
 
-  a {
-    color: grey;
+  span {
+    color: black;
   }
 `;
 
 const Matched = styled.span`
-  font-weight: bold;
-  color: black;
+  font-weight: bolder;
+  color: ${COLORS.font} !important;
 `;
 
 const Category = styled.span`
-  color: ${COLORS.font};
+  color: #9b111e !important;
   font-style: italic;
   font-size: 16px;
 `;

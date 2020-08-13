@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import GlobalStyles from "./GlobalStyles";
 import Header from "./Header";
-import NavBar from "./NavBar";
 import Footer from "./Footer";
 import Homepage from "./Homepage";
 import Categorypage from "./Categorypage";
@@ -40,12 +39,11 @@ export default function App() {
     <>
       <Router>
         <GlobalStyles />
-        <Header />
         {status === "loading" ? (
           <CircularProgress />
         ) : status === "success" ? (
           <Main>
-            <NavBar />
+            <Header />
             <Switch>
               <Route exact path="/">
                 <Homepage />

@@ -40,14 +40,13 @@ export default function NavBarDropdow({ name }) {
         onClose={() => setAnchorEl(null)}
       >
         {data.map((category) => (
-          <MenuItem key={category}>
-            <Link
-              to={`/${endpoint}/${category}`}
-              onClick={() => setAnchorEl(null)}
-            >
-              {category}
-            </Link>
-          </MenuItem>
+          <Link
+            key={category}
+            to={`/${endpoint}/${category}`}
+            onClick={() => setAnchorEl(null)}
+          >
+            <MenuItem>{category}</MenuItem>
+          </Link>
         ))}
       </Menu>
     </Wrapper>

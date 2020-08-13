@@ -57,6 +57,11 @@ const Wrapper = styled.div`
     border: none;
     color: ${COLORS.font};
     text-transform: none;
-    padding: 0;
+    padding: 0 5px;
+
+    &:hover {
+      background-color: rgba(0, 128, 128, 0.1);
+      transform: scale(1.01);
+    }
   }
 `;
