@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { getPriceTotalOfItemsInCart } from "../helper/utils";
 import { postPurchaseData } from "../helper/apiHelper";
-import { clearAllItemsInCart } from "../action";
+import { clearAllItemsInCart, changeSuccessSnackBarStatus, updateItemsStockInState, changeFailureSnackBarStatus } from "../action";
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -17,7 +17,7 @@ export default function FormDialog({ handleClose, open, cart, purchasePayload })
     const [cardNumberExpiration, setCardNumberExpiration] = React.useState("");
     const dispatch = useDispatch();
     let history = useHistory();
-  
+
     return (
     <div>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -69,9 +69,15 @@ export default function FormDialog({ handleClose, open, cart, purchasePayload })
                 .then(() => {
                   history.push('/');
                   dispatch(clearAllItemsInCart());
-                  window.location.reload();
+                  dispatch(updateItemsStockInState(purchasePayload));
+                  dispatch(changeSuccessSnackBarStatus(true));
                 })
-                .catch(err => console.log("Err: ", err));
+                .catch(err => {
+                  console.log("Err: ", err);
+                  history.push('/');
+                  dispatch(clearAllItemsInCart());
+                  dispatch(changeFailureSnackBarStatus(true));
+                });
 
             }} variant="contained" color="primary">
                 Purchase

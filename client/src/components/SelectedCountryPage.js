@@ -20,87 +20,92 @@ export default function SelectedCountryPage() {
       <Section style={{ margin: "25px 25px" }}>
         Search by: {countryOrigin}
       </Section>
-      <Alphabar>
-        <Listletter>
-          <Nav href="#A">A</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#B">B</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#C">C</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#D">D</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#E">E</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#F">F</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#G">G</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#H">H</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#I">I</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#J">J</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#K">K</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#L">L</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#M">M</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#N">N</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#O">O</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#P">P</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#Q">Q</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#R">R</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#S">S</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#T">T</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#U">U</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#V">V</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#W">W</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#X">X</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#Y">Y</Nav>
-        </Listletter>
-        <Listletter>
-          <Nav href="#Z">Z</Nav>
-        </Listletter>
-      </Alphabar>
-      <Grid style={{ margin: "50px 100px" }}>
+      {findCompanies.length > 5 && (
+        <Alphabar>
+          <Listletter>
+            <Nav href="#">#</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#A">A</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#B">B</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#C">C</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#D">D</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#E">E</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#F">F</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#G">G</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#H">H</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#I">I</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#J">J</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#K">K</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#L">L</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#M">M</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#N">N</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#O">O</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#P">P</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#Q">Q</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#R">R</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#S">S</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#T">T</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#U">U</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#V">V</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#W">W</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#X">X</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#Y">Y</Nav>
+          </Listletter>
+          <Listletter>
+            <Nav href="#Z">Z</Nav>
+          </Listletter>
+        </Alphabar>
+      )}
+      <Grid style={{ margin: "5px 5px" }}>
         {findCompanies
           .sort((a, b) => {
             if (a.name < b.name) {
@@ -130,12 +135,14 @@ export default function SelectedCountryPage() {
 
 const Grid = styled.div`
   display: grid;
-  grid: repeat(6, auto) / repeat(5, auto);
+  grid: repeat(6, auto) / repeat(11, auto);
   gap: 2em;
 `;
 
 const Section = styled.div`
-  font-size: 25px;
+  font-size: 30px;
+  font-family: "Cardo", serif;
+  color: midnightblue;
 `;
 const Alphabar = styled.div`
   display: flex;
@@ -155,4 +162,8 @@ const Nav = styled.a`
 const Listletter = styled.p`
   text-align: center;
   margin-left: 15px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.25);
+  }
 `;

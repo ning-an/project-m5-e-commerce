@@ -10,6 +10,9 @@ export default function Companypage() {
     <>
       <Alphabar>
         <Listletter>
+          <Nav href="#">#</Nav>
+        </Listletter>
+        <Listletter>
           <Nav href="#A">A</Nav>
         </Listletter>
         <Listletter>
@@ -89,7 +92,7 @@ export default function Companypage() {
         </Listletter>
       </Alphabar>
 
-      <Grid style={{ margin: "50px 100px" }}>
+      <Grid style={{ margin: "25px 25px" }}>
         {companies
           .sort((a, b) => {
             if (a.name < b.name) {
@@ -121,6 +124,8 @@ const Alphabar = styled.div`
   padding-top: 20px;
   display: flex;
   justify-content: center;
+  padding: 10px;
+  margin-top: 10px;
 `;
 
 const Grid = styled.div`
@@ -143,4 +148,8 @@ const Nav = styled.a`
 const Listletter = styled.p`
   text-align: center;
   margin-left: 15px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.25);
+  }
 `;

@@ -50,4 +50,7 @@ const Grid = styled.div`
 
 const Company = styled.h1`
   margin: 100px;
+  font-size: 30px;
+  font-family: "Cardo", serif;
+  color: midnightblue;
 `;

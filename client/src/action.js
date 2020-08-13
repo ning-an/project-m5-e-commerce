@@ -12,6 +12,18 @@ export const receiveDataError = (err) => {
   return { type: "RECEIVE_DATA_ERROR", err };
 };
 
+export const changeSuccessSnackBarStatus = (snackBarStatus) => {
+  return { type: "CHANGE_SNACKBAR_SUCCESS_STATUS", snackBarStatus };
+};
+
+export const changeFailureSnackBarStatus = (snackBarStatus) => {
+  return { type: "CHANGE_SNACKBAR_FAILURE_STATUS", snackBarStatus };
+};
+
+export const updateItemsStockInState = (purchasedItemArr) => {
+  return { type: "UPDATE_ITEMS_STOCK", purchasedItemArr };
+}
+
 // Cart actions
 
 export const addItemToCart = (item, id) => {
