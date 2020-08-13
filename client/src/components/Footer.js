@@ -53,3 +53,14 @@ const Copyright = styled.div`
   font-size: 24px;
   z-index: -10000;
 `;
+
+const Hippo = styled.img`
+  height: 50px;
+`;
+const LinksSection = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+  margin-left: 10px;
+`;
