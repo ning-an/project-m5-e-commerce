@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 import SmallCompany from "./Items/SmallCompany";
+import BackToTop from "./BackToTop";
 
 export default function Companypage() {
   const { companies } = useSelector((state) => state.auth);
@@ -91,7 +92,7 @@ export default function Companypage() {
           <Nav href="#Z">Z</Nav>
         </Listletter>
       </Alphabar>
-
+      <BackToTop />
       <Grid style={{ margin: "25px 25px" }}>
         {companies
           .sort((a, b) => {

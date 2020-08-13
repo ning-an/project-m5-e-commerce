@@ -18,12 +18,18 @@ export default function SmallItem({ item }) {
     history.push(`/item/${item.id}`);
   }
 
+  const handleBuy = (e) => {
+    e.stopPropagation();
+    dispatch(addItemToCart(item, item.id));
+  };
+
   return (
     <Wrapper
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onClick={navigateItemPage}
     >
-      <img src={item.imageSrc} alt={item.name} onClick={navigateItemPage} />
+      <img src={item.imageSrc} alt={item.name} />
       <p>{item.name}</p>
       <p>{item.price}</p>
       <Flag>{item.category}</Flag>
@@ -33,7 +39,7 @@ export default function SmallItem({ item }) {
             OUT OF STOCK
           </BuyBtn>
         ) : (
-          <BuyBtn onClick={() => dispatch(addItemToCart(item, item.id))}>
+          <BuyBtn onClick={handleBuy}>
             ADD TO CART{" "}
             {state.cart[item.id] ? `Qt: ${state.cart[item.id].quantity}` : ""}
           </BuyBtn>

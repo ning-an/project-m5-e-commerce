@@ -11,6 +11,7 @@ import {
   changeSuccessSnackBarStatus,
   changeFailureSnackBarStatus,
 } from "../action";
+import BackToTop from "./BackToTop";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -88,6 +89,7 @@ export default function PaginatePage({ items }) {
           Something went very wrong. Please contact customer support.
         </Alert>
       </Snackbar>
+      <BackToTop />
     </Wrapper>
   );
 }

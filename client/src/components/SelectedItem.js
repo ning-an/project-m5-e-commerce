@@ -11,7 +11,6 @@ export default function SelectedItem() {
   let findItem = items.filter((item) => {
     return item.id === itemid;
   });
-  console.log(findItem);
 
   return (
     <>

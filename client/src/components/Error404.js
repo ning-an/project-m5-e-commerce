@@ -226,7 +226,3 @@ const MusicButton = styled.button`
   margin-top: 40vh;
   margin-left: 40vw;
 `;
-
-const lyrics = styled.div`
-  font-size: 15px;
-`;

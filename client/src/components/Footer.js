@@ -48,13 +48,6 @@ const MainContenWrapper = styled.div`
   padding: 20px 0;
 `;
 
-const Copyright = styled.div`
-  color: black;
-  font-family: "Handlee", cursive;
-  font-size: 24px;
-  z-index: -10000;
-`;
-
 const Hippo = styled.img`
   height: 50px;
 `;
