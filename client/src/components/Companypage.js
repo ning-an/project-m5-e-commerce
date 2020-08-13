@@ -8,10 +8,6 @@ export default function Companypage() {
   const { companies } = useSelector((state) => state.auth);
   return (
     <>
-      <div>Shows all companies after clicking "Company"</div>
-      <div>
-        Click on the letter below to go directly to companies by that letter!
-      </div>
       <Alphabar>
         <Listletter>
           <Nav href="#A">A</Nav>
@@ -93,7 +89,7 @@ export default function Companypage() {
         </Listletter>
       </Alphabar>
 
-      <Grid style={{ margin: "50px 100px" }}>
+      <Grid style={{ margin: "25px 25px" }}>
         {companies
           .sort((a, b) => {
             if (a.name < b.name) {
@@ -124,6 +120,8 @@ export default function Companypage() {
 const Alphabar = styled.div`
   display: flex;
   justify-content: center;
+  padding: 10px;
+  margin-top: 10px;
 `;
 
 const Grid = styled.div`
@@ -146,4 +144,8 @@ const Nav = styled.a`
 const Listletter = styled.p`
   text-align: center;
   margin-left: 15px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.25);
+  }
 `;

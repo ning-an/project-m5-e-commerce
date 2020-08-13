@@ -20,12 +20,18 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 0px 16px -11px rgba(0, 0, 0, 0.75);
-  border: 3px solid blue;
+  box-shadow: 0px 0px 16px -11px rgba(255, 182, 193, 0.75);
+  border: 3px solid lightpink;
+  border-radius: 7px;
   width: 100px;
   height: 100px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.3);
+  }
   p {
     text-align: center;
     opacity: 100%;
+    font-size: 15px;
   }
 `;
