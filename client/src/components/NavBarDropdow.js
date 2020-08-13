@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { Button, Menu, MenuItem } from "@material-ui/core";
 
 import { groupItemsByKey } from "./handlers";
-import { COLORS } from "./constants";
 
 export default function NavBarDropdow({ name }) {
   const { items } = useSelector((state) => state.auth);
