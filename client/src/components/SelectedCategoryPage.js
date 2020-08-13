@@ -9,7 +9,7 @@ export default function SelectedCategoryPage() {
   const { category } = useParams();
 
   let findCategory = items.filter((cat) => {
-    return cat.category == category;
+    return cat.category === category;
   });
 
   const targetCategory = findCategory[0].category;

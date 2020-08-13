@@ -34,7 +34,7 @@ export default function App() {
     fetchAllData()
       .then((data) => dispatch(receiveAllData(data)))
       .catch((err) => dispatch(receiveDataError(err)));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
