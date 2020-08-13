@@ -86,6 +86,9 @@ export default function App() {
               <Route path="/search/:input">
                 <Results />
               </Route>
+              <Route exact path="/*">
+                <Error404 />
+              </Route>
             </Switch>
           </Main>
         ) : (

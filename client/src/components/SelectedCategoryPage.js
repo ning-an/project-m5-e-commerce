@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import SmallItem from "./Items/SmallItem";
+
+import Pagination from "./Pagination";
 
 export default function SelectedCategoryPage() {
   const { items } = useSelector((state) => state.auth);
@@ -14,18 +15,7 @@ export default function SelectedCategoryPage() {
 
   const targetCategory = findCategory[0].category;
 
-  return (
-    <>
-      <Section style={{ margin: "50px 50px" }}>
-        Browsing by: {targetCategory}
-      </Section>
-      <Grid style={{ margin: "50px 50px" }}>
-        {findCategory.map((item) => {
-          return <SmallItem key={item.id} item={item} />;
-        })}
-      </Grid>
-    </>
-  );
+  return <Pagination items={findCategory} />;
 }
 
 const Grid = styled.div`
@@ -34,6 +24,4 @@ const Grid = styled.div`
   gap: 2em;
 `;
 
-const Section = styled.h1`
-  /* margin: 100px; */
-`;
+const Section = styled.h1``;

@@ -19,4 +19,5 @@ const Copyright = styled.div`
   color: black;
   font-family: "Handlee", cursive;
   font-size: 24px;
+  z-index: -10000;
 `;

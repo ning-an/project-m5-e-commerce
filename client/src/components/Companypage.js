@@ -8,10 +8,6 @@ export default function Companypage() {
   const { companies } = useSelector((state) => state.auth);
   return (
     <>
-      <div>Shows all companies after clicking "Company"</div>
-      <div>
-        Click on the letter below to go directly to companies by that letter!
-      </div>
       <Alphabar>
         <Listletter>
           <Nav href="#A">A</Nav>
@@ -122,6 +118,7 @@ export default function Companypage() {
 }
 
 const Alphabar = styled.div`
+  padding-top: 20px;
   display: flex;
   justify-content: center;
 `;
