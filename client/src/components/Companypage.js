@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
@@ -104,16 +104,17 @@ export default function Companypage() {
             return 0;
           })
           .map((company, i, arr) => {
+            // console.log(company.id)
             let order = undefined;
             if (i > 0) order = arr[i - 1].name[0];
             if (order !== company.name[0]) {
               return (
-                <>
+                <Companies key={company.id}>
                   <FixingGrid id={company.name[0]}></FixingGrid>
-                  <SmallCompany key={company._id} company={company} />
-                </>
+                  <SmallCompany company={company} />
+                </Companies>
               );
-            } else return <SmallCompany key={company._id} company={company} />;
+            } else return <SmallCompany key={company.id} company={company} />;
           })}
       </Grid>
     </>
@@ -152,4 +153,8 @@ const Listletter = styled.p`
   &:hover {
     transform: scale(1.25);
   }
+`;
+
+const Companies = styled.div`
+  display: contents;
 `;

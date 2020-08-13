@@ -10,13 +10,11 @@ export default function SelectedCompanyPage() {
   console.log(companyId);
 
   let findCompany = items.filter((company) => {
-    return company.companyId == companyId;
+    return company.companyId === Number(companyId);
   });
 
   let companyName = companies.filter((company) => {
-    if (company.id == companyId) {
-      return company.name;
-    }
+    return company.id === Number(companyId);
   });
 
   return (
@@ -38,8 +36,6 @@ export default function SelectedCompanyPage() {
     </>
   );
 }
-
-const Wrapper = styled.div``;
 
 const Grid = styled.div`
   display: grid;

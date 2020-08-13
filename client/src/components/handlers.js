@@ -1,5 +1,3 @@
-import Categorypage from "./Categorypage";
-
 export const get15RandomItems = (items) => {
   const randomItems = [];
   const randomNums = [];

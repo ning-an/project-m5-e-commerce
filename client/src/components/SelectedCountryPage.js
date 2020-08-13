@@ -4,14 +4,13 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import SmallCompany from "./Items/SmallCompany";
-import { teal } from "@material-ui/core/colors";
 
 export default function SelectedCountryPage() {
   const companies = useSelector((state) => state.auth.companies);
   const { country } = useParams();
 
   let findCompanies = companies.filter((companies) => {
-    return companies.country == country;
+    return companies.country === country;
   });
 
   const countryOrigin = findCompanies[0].country;
@@ -121,12 +120,12 @@ export default function SelectedCountryPage() {
             if (i > 0) order = arr[i - 1].name[0];
             if (order !== company.name[0]) {
               return (
-                <>
+                <Companies key={company.id}>
                   <FixingGrid id={company.name[0]}></FixingGrid>
-                  <SmallCompany key={company._id} company={company} />
-                </>
+                  <SmallCompany company={company} />
+                </Companies>
               );
-            } else return <SmallCompany key={company._id} company={company} />;
+            } else return <SmallCompany key={company.id} company={company} />;
           })}
       </Grid>
     </>
@@ -166,4 +165,8 @@ const Listletter = styled.p`
   &:hover {
     transform: scale(1.25);
   }
+`;
+
+const Companies = styled.div`
+  display: contents;
 `;

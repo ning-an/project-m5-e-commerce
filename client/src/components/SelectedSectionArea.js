@@ -10,7 +10,7 @@ export default function SelectedSectionArea() {
   const { sectionarea } = useParams();
 
   let findBodies = items.filter((body) => {
-    return body.body_location == sectionarea;
+    return body.body_location === sectionarea;
   });
 
   const bodypart = findBodies[0].body_location;
