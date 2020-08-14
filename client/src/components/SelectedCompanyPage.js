@@ -2,19 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { useParams, Redirect } from "react-router-dom";
-import SmallCompany from "./Items/LargeCompany";
+import SmallItem from "./Items/SmallItem";
 
 export default function SelectedCompanyPage() {
   const { companies, items } = useSelector((state) => state.auth);
   const { companyId } = useParams();
-  console.log(companyId);
 
   let findCompany = items.filter((company) => {
-    return company.companyId === Number(companyId);
+    return company.companyId == companyId;
   });
 
   let companyName = companies.filter((company) => {
-    return company.id === Number(companyId);
+    if (company.id == companyId) {
+      return company.name;
+    }
   });
 
   return (
@@ -27,8 +28,8 @@ export default function SelectedCompanyPage() {
             Welcome to {companyName[0].name} Products
           </Company>
           <Grid style={{ margin: "50px 50px" }}>
-            {findCompany.map((company) => {
-              return <SmallCompany key={company.id} company={company} />;
+            {findCompany.map((item) => {
+              return <SmallItem key={item.id} item={item} />;
             })}
           </Grid>
         </>

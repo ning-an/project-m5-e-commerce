@@ -105,7 +105,6 @@ export default function Companypage() {
             return 0;
           })
           .map((company, i, arr) => {
-            // console.log(company.id)
             let order = undefined;
             if (i > 0) order = arr[i - 1].name[0];
             if (order !== company.name[0]) {

@@ -96,6 +96,9 @@ export default function PaginatePage({ items }) {
 
 const View = styled.div`
   align-self: flex-end;
+  label {
+    margin-right: 10px;
+  }
 `;
 
 const Wrapper = styled.div`
