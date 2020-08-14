@@ -19,7 +19,7 @@ export default function Cart({item}) {
                         <p>{item.name}</p>
                         <p>By {getCompanyName(item.companyId, companies)}</p>
                     </div>
-                    <p>Selected Quantity: {item.quantity} <PlusMinusBtn onClick={() => dispatch(incrementItemQuantityBy1(item.id))} style={{display: "inline-block"}}>+</PlusMinusBtn> <PlusMinusBtn onClick={() => dispatch(decrementItemQuantityBy1(item.id))} style={{display: "inline-block"}}>-</PlusMinusBtn></p>
+                    <p>Selected Quantity: <PlusMinusBtn onClick={() => dispatch(decrementItemQuantityBy1(item.id))} style={{display: "inline-block"}}>-</PlusMinusBtn> {item.quantity} <PlusMinusBtn onClick={() => dispatch(incrementItemQuantityBy1(item.id))} style={{display: "inline-block"}}>+</PlusMinusBtn></p>
                     <p>Number of item in stock: {item.numInStock}</p>
                     <span><RemoveBtn onClick={() => dispatch(removeItemFromCart(item.id))}>Remove all</RemoveBtn></span>
                     <p style={{marginTop: "auto", marginLeft: "auto"}}>{item.price}</p>
