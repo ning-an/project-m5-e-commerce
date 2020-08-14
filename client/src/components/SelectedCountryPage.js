@@ -55,7 +55,7 @@ export default function SelectedCountryPage() {
             <Nav href="#J">J</Nav>
           </Listletter>
           <Listletter>
-            <Nav href="#K">K</Nav>
+            <Nav href="#J">K</Nav>
           </Listletter>
           <Listletter>
             <Nav href="#L">L</Nav>
@@ -73,10 +73,10 @@ export default function SelectedCountryPage() {
             <Nav href="#P">P</Nav>
           </Listletter>
           <Listletter>
-            <Nav href="#Q">Q</Nav>
+            <Nav href="#P">Q</Nav>
           </Listletter>
           <Listletter>
-            <Nav href="#R">R</Nav>
+            <Nav href="#P">R</Nav>
           </Listletter>
           <Listletter>
             <Nav href="#S">S</Nav>
@@ -85,7 +85,7 @@ export default function SelectedCountryPage() {
             <Nav href="#T">T</Nav>
           </Listletter>
           <Listletter>
-            <Nav href="#U">U</Nav>
+            <Nav href="#T">U</Nav>
           </Listletter>
           <Listletter>
             <Nav href="#V">V</Nav>
@@ -100,7 +100,7 @@ export default function SelectedCountryPage() {
             <Nav href="#Y">Y</Nav>
           </Listletter>
           <Listletter>
-            <Nav href="#Z">Z</Nav>
+            <Nav href="#Y">Z</Nav>
           </Listletter>
         </Alphabar>
       )}

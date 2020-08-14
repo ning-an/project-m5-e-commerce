@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
@@ -44,7 +44,7 @@ export default function Companypage() {
           <Nav href="#J">J</Nav>
         </Listletter>
         <Listletter>
-          <Nav href="#K">K</Nav>
+          <Nav href="#J">K</Nav>
         </Listletter>
         <Listletter>
           <Nav href="#L">L</Nav>
@@ -62,7 +62,7 @@ export default function Companypage() {
           <Nav href="#P">P</Nav>
         </Listletter>
         <Listletter>
-          <Nav href="#Q">Q</Nav>
+          <Nav href="#P">Q</Nav>
         </Listletter>
         <Listletter>
           <Nav href="#R">R</Nav>
@@ -74,7 +74,7 @@ export default function Companypage() {
           <Nav href="#T">T</Nav>
         </Listletter>
         <Listletter>
-          <Nav href="#U">U</Nav>
+          <Nav href="#T">U</Nav>
         </Listletter>
         <Listletter>
           <Nav href="#V">V</Nav>
@@ -89,7 +89,7 @@ export default function Companypage() {
           <Nav href="#Y">Y</Nav>
         </Listletter>
         <Listletter>
-          <Nav href="#Z">Z</Nav>
+          <Nav href="#Y">Z</Nav>
         </Listletter>
       </Alphabar>
       <BackToTop />
@@ -109,12 +109,12 @@ export default function Companypage() {
             if (i > 0) order = arr[i - 1].name[0];
             if (order !== company.name[0]) {
               return (
-                <Companies key={company.id}>
+                <>
                   <FixingGrid id={company.name[0]}></FixingGrid>
-                  <SmallCompany company={company} />
-                </Companies>
+                  <SmallCompany key={company._id} company={company} />
+                </>
               );
-            } else return <SmallCompany key={company.id} company={company} />;
+            } else return <SmallCompany key={company._id} company={company} />;
           })}
       </Grid>
     </>
@@ -122,7 +122,6 @@ export default function Companypage() {
 }
 
 const Alphabar = styled.div`
-  padding-top: 20px;
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -153,8 +152,4 @@ const Listletter = styled.p`
   &:hover {
     transform: scale(1.25);
   }
-`;
-
-const Companies = styled.div`
-  display: contents;
 `;
