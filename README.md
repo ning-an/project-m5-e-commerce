@@ -55,9 +55,9 @@ You can choose the number of products per page, and back to top by one click.
 
 Thanks to all my teammates for their contribution. We had a great time learning and working together.
 
-- @antonioplacido(https://github.com/antonioplacido) :microphone:
-- @mrwanzein :santa:
-- @RupySB :book:
+- [@antonioplacido](https://github.com/antonioplacido) :microphone:
+- [@mrwanzein](https://github.com/mrwanzein) :santa:
+- [@RupySB](https://github.com/RupySB) :book:
 
 ## Contact
 
